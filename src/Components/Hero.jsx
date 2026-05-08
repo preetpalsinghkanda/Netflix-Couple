@@ -1,0 +1,55 @@
+import React from "react";
+import Hero_NavBar from "./Hero_NavBar";
+import bgImage from "../assets/bgImage.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
+const Hero = () => {
+  return (
+    <div
+      className="w-full h-screen bg-cover bg-center flex mx-auto items-start justify-center"
+      style={{
+        backgroundImage:`
+          linear-gradient(
+            rgba(0,0,0,0.7),
+            rgba(0,0,0,0.7)
+          ),
+          url(${bgImage})
+        `,
+      }}
+    >
+      <div className="w-[1280px] mx-auto px-6 flex flex-col   ">
+        <Hero_NavBar />
+
+        <div className="text-white text-center  my-14">
+          <h1 className="text-6xl font-extrabold leading-tight">
+            Unlimited movies,<p className="block"></p> shows, and more
+          </h1>
+
+          <p className="text-2xl font-bold relative bottom-2 mt-6">
+            Starts at ₹149. But FREE for Harsh ,<p className="block"></p>Cancel
+            at any time.
+          </p>
+
+          <p className="text-lg mt-5">
+            Ready to watch? Enter your email to create or restart your
+            membership.
+          </p>
+
+          <div className="my-4  flex items-center justify-center gap-3">
+            <input
+              className=" min-w-[400px] border px-4 rounded-sm py-3.5 text-xl font-[700] border-[#7d7c7c9f]"
+              type="text"
+              placeholder="Email address"
+            />
+            <button className="bg-[#E50914] flex items-center justify-center px-8 py-3.5 text-2xl font-[700] rounded-lg">
+              Get Started <FontAwesomeIcon icon={faAngleRight} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
