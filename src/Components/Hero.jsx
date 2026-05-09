@@ -3,11 +3,13 @@ import Hero_NavBar from "./Hero_NavBar";
 import bgImage from "../assets/bgImage.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import FAQ from "./FAQ";
 
 const Hero = () => {
   return (
+   
     <div
-      className="w-full h-screen bg-cover bg-center flex mx-auto items-start justify-center"
+      className="bg-[#000000] w-full h-screen bg-cover bg-center flex mx-auto items-start justify-center"
       style={{
         backgroundImage:`
           linear-gradient(
@@ -20,6 +22,7 @@ const Hero = () => {
     >
       <div className="w-[1280px] mx-auto px-6 flex flex-col   ">
         <Hero_NavBar />
+
 
         <div className="text-white text-center  my-14">
           <h1 className="text-6xl font-extrabold leading-tight">
@@ -47,8 +50,13 @@ const Hero = () => {
             </button>
           </div>
         </div>
+
+        
+
       </div>
+
     </div>
+    
   );
 };
 
