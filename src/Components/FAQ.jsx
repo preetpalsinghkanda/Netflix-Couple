@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import NetflixCouple from "../Context/Context.";
 
 const FAQ = () => {
@@ -41,14 +41,27 @@ const FAQ = () => {
               }
             >
               <h4 className="text-2xl font-[500]"> {item.faq}</h4>
-              <FontAwesomeIcon icon={faPlus} className="text-4xl" />
+              <FontAwesomeIcon
+                icon={enabledFAQ === indexValue ? faPlus : faPlus}
+                className={`text-4xl transition-transform duration-400 ${
+                  enabledFAQ === indexValue ? "-rotate-45" : "rotate-0"
+                }`}
+              />
             </div>
 
-            {enabledFAQ === indexValue && (
-              <div className="py-6 px-6  text-2xl gap-6 flex flex-col bg-[#2D2D2D] border-t-2 border-[black] ">
-                <p className="">{item.answer}</p>
+            <div
+              className={`grid transition-all duration-300 ease-in-out ${
+                enabledFAQ === indexValue
+                  ? "grid-rows-[1fr] opacity-100"
+                  : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="py-6 px-6 text-2xl gap-6 flex flex-col bg-[#2D2D2D] border-t-2 border-black">
+                  <p>{item.answer}</p>
+                </div>
               </div>
-            )}
+            </div>
           </div>
         ))}
         <div></div>
