@@ -5,17 +5,20 @@ import FAQ from "./Components/FAQ";
 import ReasonToJoin from "./Components/ReasonToJoin";
 import ReadyToWatch from './Components/ReadyToWatch';
 import Footer from "./Components/Footer";
+import WhoIsWatching from "./Components/WhoIsWatching";
 
 const App = () => {
   return (
     <div className="flex justify-center  flex-col bg-[black]">
       
       
-      <Hero/>
+      {/* <Hero/> */}
       {/* <ReasonToJoin/> */}
-      <FAQ/>
-      <ReadyToWatch/>
-      <Footer/>
+      {/* <FAQ/> */}
+      {/* <ReadyToWatch/> */}
+      {/* <Footer/> */}
+
+      <WhoIsWatching/>
     </div>
   );
 };
