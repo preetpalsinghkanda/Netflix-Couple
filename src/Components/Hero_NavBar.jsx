@@ -5,7 +5,7 @@ import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 
 const Hero_NavBar = () => {
   return (
-    <div className="  flex justify-between">
+    <div className="  flex justify-between shadow-[0px_-20px_40px_rgba(0,0,0,0.9)] ">
       <img src={netflixIcon} alt="" className="h-40 relative bottom-8" />
       <div className="flex flex-row items-start gap-4 relative top-8">
         <div className="outline-1 px-4 py-1 rounded-md text-white outline-[#7e7e7e]">

@@ -4,6 +4,7 @@ import Hero from "./Components/Hero";
 import FAQ from "./Components/FAQ";
 import ReasonToJoin from "./Components/ReasonToJoin";
 import ReadyToWatch from './Components/ReadyToWatch';
+import Footer from "./Components/Footer";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       {/* <ReasonToJoin/> */}
       <FAQ/>
       <ReadyToWatch/>
+      <Footer/>
     </div>
   );
 };

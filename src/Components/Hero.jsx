@@ -41,7 +41,7 @@ const Hero = () => {
 
           <div className="my-4  flex items-center justify-center gap-3">
             <input
-              className=" min-w-[400px] border px-4 rounded-sm py-3.5 text-xl font-[700] border-[#7d7c7c9f]"
+              className=" min-w-[400px] border bg-[#0f0f0f93] px-4 rounded-sm py-3.5 text-xl font-[700] border-[#7d7c7c9f]"
               type="text"
               placeholder="Email address"
             />

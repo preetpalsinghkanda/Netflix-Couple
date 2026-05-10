@@ -8,7 +8,7 @@ const ReadyToWatch = () => {
        <h4 className='text-lg'>Ready to watch? Enter your email to create or restart your membership.</h4>
        <div className="my-4  flex items-center justify-center gap-3">
             <input
-              className=" min-w-[600px] border px-4 rounded-sm py-3.5 text-xl font-[700] border-[#7d7c7c9f]"
+              className=" min-w-[600px] border px-4 rounded-sm bg-[#0F0F0F] py-3.5 text-xl font-[700] border-[#7d7c7c9f]"
               type="text"
               placeholder="Email address"
             />
