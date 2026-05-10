@@ -15,7 +15,7 @@ const Hero_NavBar = () => {
             <option value="">Hindi</option>
           </select>
         </div>
-        <button className="bg-[#E50914] text-[#FFFFFF] font-bold rounded-md px-4 py-1">
+        <button className="bg-[#E50914] text-[#FFFFFF] font-bold rounded-md px-4 py-1 cursor-pointer">
           Sign in
         </button>
       </div>

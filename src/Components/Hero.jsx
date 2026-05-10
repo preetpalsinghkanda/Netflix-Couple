@@ -45,7 +45,7 @@ const Hero = () => {
               type="text"
               placeholder="Email address"
             />
-            <button className="bg-[#E50914] flex items-center justify-center px-8 py-3.5 text-2xl font-[700] rounded-lg">
+            <button className="bg-[#E50914] flex items-center justify-center px-8 py-3.5 text-2xl cursor-pointer font-[700] rounded-lg">
               Get Started <FontAwesomeIcon icon={faAngleRight} />
             </button>
           </div>
