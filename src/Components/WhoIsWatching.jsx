@@ -3,6 +3,7 @@ import profile1 from "../assets/Profiles/profile1.webp";
 import profile2 from "../assets/Profiles/profile2.webp";
 import profile3 from "../assets/Profiles/profile3.webp";
 import profile4 from "../assets/Profiles/profile4.webp";
+import backgroundImage from "../assets/bg_who.webp";
 
 const WhoIsWatching = () => {
   const profiles = [
@@ -25,7 +26,13 @@ const WhoIsWatching = () => {
   ];
 
   return (
-    <div className="h-screen text-white flex justify-center items-center flex-col">
+    <div
+      className="h-screen text-white flex justify-center items-center flex-col"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+      }}
+    >
       <h1 className="text-5xl font-[600]">Who's Watching ?</h1>
 
       <div className="my-16 flex gap-12">

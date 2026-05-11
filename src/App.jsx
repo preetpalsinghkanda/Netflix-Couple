@@ -12,13 +12,13 @@ const App = () => {
     <div className="flex justify-center  flex-col bg-[black]">
       
       
-      {/* <Hero/> */}
-      {/* <ReasonToJoin/> */}
-      {/* <FAQ/> */}
-      {/* <ReadyToWatch/> */}
-      {/* <Footer/> */}
+      <Hero/>
+      <ReasonToJoin/>
+      <FAQ/>
+      <ReadyToWatch/>
+      <Footer/>
 
-      <WhoIsWatching/>
+      {/* <WhoIsWatching/> */}
     </div>
   );
 };

@@ -60,7 +60,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className=" w-full mx-auto max-w-7xl text-[#B3B3B3] mb-25">
+    <div className=" w-full px-10 mx-auto max-w-7xl text-[#B3B3B3] mb-25">
       <h6>
         Questions? Call{" "}
         <span className="underline cursor-pointer">000-800-919-1743</span>
