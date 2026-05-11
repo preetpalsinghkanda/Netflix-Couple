@@ -66,7 +66,7 @@ const Footer = () => {
         <span className="underline cursor-pointer">000-800-919-1743</span>
       </h6>
 
-      <div className="grid-cols-4 grid my-10">
+      <div className="lg:grid-cols-4 grid my-10 gap-2 md:grid-cols-2 md:grid-rows-2 lg:grid-rows-1 ">
         <div>
           <ul className="gap-2 flex  flex-col">
             {footerBtns[0].map((item) => {
