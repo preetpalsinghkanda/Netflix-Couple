@@ -6,19 +6,24 @@ import ReasonToJoin from "./Components/ReasonToJoin";
 import ReadyToWatch from './Components/ReadyToWatch';
 import Footer from "./Components/Footer";
 import WhoIsWatching from "./Components/WhoIsWatching";
+import HomeSideNavBar from "./Components/HomeScreen/HomeSideNavBar";
 
 const App = () => {
   return (
     <div className="flex justify-center  flex-col bg-[black]">
       
       
-      <Hero/>
+      {/* <Hero/>
       <ReasonToJoin/>
       <FAQ/>
       <ReadyToWatch/>
-      <Footer/>
+      <Footer/>  */}
 
       {/* <WhoIsWatching/> */}
+
+
+        <HomeSideNavBar/>
+
     </div>
   );
 };
