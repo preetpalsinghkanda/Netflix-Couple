@@ -46,4 +46,4 @@ const HomeSideNavBar = () => {
   );
 };
 
-export default Home;
+export default HomeSideNavBar;

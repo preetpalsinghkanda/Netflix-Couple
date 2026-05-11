@@ -7,6 +7,7 @@ import ReadyToWatch from './Components/ReadyToWatch';
 import Footer from "./Components/Footer";
 import WhoIsWatching from "./Components/WhoIsWatching";
 import HomeSideNavBar from "./Components/HomeScreen/HomeSideNavBar";
+import HomeNavBar from "./Components/HomeScreen/HomeNavBar";
 
 const App = () => {
   return (
@@ -22,7 +23,8 @@ const App = () => {
       {/* <WhoIsWatching/> */}
 
 
-        <HomeSideNavBar/>
+        {/* <HomeSideNavBar/>*/}
+        <HomeNavBar/>
 
     </div>
   );
