@@ -16,7 +16,7 @@ const HomeNavBar = () => {
         <ul className="flex font-[700] text-xl gap-9 text-[#ffffffa1] ">
           <li className="text-white cursor-pointer">Home</li>
           <li className="cursor-pointer">TV Shows</li>
-          <li className="cursor-pointer">Movies</li>
+          <li className="cursor-pointer">Movies</li>  
           <li className="cursor-pointer">My List</li>
           <li className="cursor-pointer">My Netflix</li>
         </ul>
