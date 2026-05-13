@@ -79,7 +79,7 @@ const Cards = () => {
         {visibleCards < CardImages.length && (
           <button
             onClick={() => setVisibleCards(visibleCards + 4)}
-            className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end mx-10"
+            className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end mx-10 cursor-pointer"
           >
             Show More
           </button>
@@ -106,7 +106,7 @@ const Cards = () => {
         {cardss < CardImagesV.length && (
           <button
             onClick={() => setCardss(cardss + 6)}
-            className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end mx-10"
+            className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end mx-10 cursor-pointer"
           >
             Show More
           </button>
