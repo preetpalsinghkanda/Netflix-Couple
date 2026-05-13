@@ -31,7 +31,7 @@ const HomeSideNavBar = () => {
   ];
 
   return (
-    <div className="h-screen border border-white sticky  top-0 z-18 bg-black w-30 flex flex-col text-3xl gap-12 items-center justify-center">
+    <div className="h-screen  sticky  top-0 z-18 bg-black w-26 flex flex-col text-3xl gap-12 items-center justify-center">
       {homeIcons.map((item) => {
         return (
           <div className=" border-red-700 inline-block pb-2 ">

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 const Cards = () => {
-  const [visibleCards, setVisibleCards] = useState(4);
-  const [cardss, setCardss] = useState(6);
+  const [horizontalHeight, setHorizontalHeight] = useState(true);
+  const [verticalHeight, setVerticalHeight] = useState(true);
 
   const CardImages = [
     {
@@ -58,59 +58,63 @@ const Cards = () => {
   ];
 
   return (
-    <div className="text-white">
-      <div className="text-white flex flex-col gap-3">
-        <h4 className="text-2xl">Trending Now</h4>
+    <div className="text-white flex flex-col gap-4 relative bottom-12 bg-transparent ">
+      <div className="flex flex-col">
+        <div
+          className={` text-white flex flex-col gap-3 ${horizontalHeight ? `h-65` : `h-auto`} overflow-hidden`}
+        >
+          <h4 className="text-[26px]">Trending Now</h4>
 
-        <div className="flex gap-3 flex-wrap">
-          {CardImages.slice(0, visibleCards).map((item, index) => {
-            return (
-              <div key={index} className="w-90 h-54">
-                <img
-                  src={item.url}
-                  alt=""
-                  className="object-cover w-full h-full rounded-md"
-                />
-              </div>
-            );
-          })}
+          <div className="flex gap-3 flex-wrap ">
+            {CardImages.map((item, index) => {
+              return (
+                <div key={index} className="w-82 h-50">
+                  <img
+                    src={item.url}
+                    alt=""
+                    className="object-cover w-full h-full rounded-md"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        {visibleCards < CardImages.length && (
-          <button
-            onClick={() => setVisibleCards(visibleCards + 4)}
-            className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end mx-10 cursor-pointer"
-          >
-            Show More
-          </button>
-        )}
+        <button
+          onClick={() => setHorizontalHeight(!horizontalHeight)}
+          className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end  cursor-pointer"
+        >
+          {horizontalHeight ? "Show More" : "Show Less"}
+        </button>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <h4 className="text-2xl">New on Netflix</h4>
+      <div className="flex flex-col">
+        <div
+          className={`flex flex-col gap-3 ${verticalHeight ? `h-91` : `h-auto`} overflow-hidden`}
+        >
+          <h4 className="text-[26px]">New on Netflix</h4>
 
-        <div className="flex gap-3 flex-wrap">
-          {CardImagesV.slice(0, cardss).map((item, index) => {
-            return (
-              <div key={index} className="w-60 h-80">
-                <img
-                  src={item}
-                  alt=""
-                  className="object-cover w-full h-full rounded-md"
-                />
-              </div>
-            );
-          })}
+          <div className="flex gap-3 flex-wrap">
+            {CardImagesV.map((item, index) => {
+              return (
+                <div key={index} className="w-54 h-76">
+                  <img
+                    src={item}
+                    alt=""
+                    className="object-cover w-full h-full rounded-md"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        {cardss < CardImagesV.length && (
-          <button
-            onClick={() => setCardss(cardss + 6)}
-            className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end mx-10 cursor-pointer"
-          >
-            Show More
-          </button>
-        )}
+        <button
+          onClick={() => setVerticalHeight(!verticalHeight)}
+          className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end  cursor-pointer"
+        >
+          {verticalHeight ? "Show More" : "Less More"}
+        </button>
       </div>
     </div>
   );
