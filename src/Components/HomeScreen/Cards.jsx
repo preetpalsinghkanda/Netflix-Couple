@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Cards = () => {
-  const [horizontalHeight, setHorizontalHeight] = useState(true);
-  const [verticalHeight, setVerticalHeight] = useState(true);
-
   const CardImages = [
     {
       url: "https://m.media-amazon.com/images/M/MV5BNzljN2MwM2UtMDg2Ny00YzlmLWFlYTktODM5ZmEwMWE5MTgwXkEyXkFqcGc@._V1_.jpg",
@@ -58,63 +55,41 @@ const Cards = () => {
   ];
 
   return (
-    <div className="text-white  flex flex-col gap-4 relative bottom-12 bg-transparent ">
-      <div className="flex flex-col">
-        <div
-          className={` text-white flex flex-col gap-3 ${horizontalHeight ? `h-65` : `h-auto`} overflow-hidden`}
-        >
-          <h4 className="text-[26px]">Trending Now</h4>
+    <div className= " cards relative bottom-13 text-white mb-6 lg:mt-0 mt-4 flex flex-col gap-8 bg-transparent w-full overflow-hidden">
+      <div className="flex flex-col gap-3 w-full">
+        <h4 className="text-[26px] font-[600]">Trending Now</h4>
 
-          <div className="flex gap-3 flex-wrap ">
-            {CardImages.map((item, index) => {
-              return (
-                <div key={index} className="w-82 h-50">
-                  <img
-                    src={item.url}
-                    alt=""
-                    className="object-cover w-full h-full rounded-md"
-                  />
-                </div>
-              );
-            })}
-          </div>
+        <div className="flex gap-3 overflow-x-auto flex-nowrap scrollbar-hide scroll-smooth pb-4">
+          {CardImages.map((item, index) => {
+            return (
+              <div key={index} className="w-82 h-50 flex-shrink-0">
+                <img
+                  src={item.url}
+                  alt=""
+                  className="object-cover w-full h-full rounded-md"
+                />
+              </div>
+            );
+          })}
         </div>
-
-        <button
-          onClick={() => setHorizontalHeight(!horizontalHeight)}
-          className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end  cursor-pointer"
-        >
-          {horizontalHeight ? "Show More" : "Show Less"}
-        </button>
       </div>
 
-      <div className="flex flex-col">
-        <div
-          className={`flex flex-col gap-3 ${verticalHeight ? `h-91` : `h-auto`} overflow-hidden`}
-        >
-          <h4 className="text-[26px]">New on Netflix</h4>
+      <div className="flex flex-col gap-3 w-full">
+        <h4 className="text-[26px] font-[600]">New on Netflix</h4>
 
-          <div className="flex gap-3 flex-wrap">
-            {CardImagesV.map((item, index) => {
-              return (
-                <div key={index} className="w-54 h-76">
-                  <img
-                    src={item}
-                    alt=""
-                    className="object-cover w-full h-full rounded-md"
-                  />
-                </div>
-              );
-            })}
-          </div>
+        <div className="flex gap-3 overflow-x-auto flex-nowrap  scrollbar-hide scroll-smooth pb-4">
+          {CardImagesV.map((item, index) => {
+            return (
+              <div key={index} className="w-54 h-76 flex-shrink-0">
+                <img
+                  src={item}
+                  alt=""
+                  className="object-cover w-full h-full rounded-md"
+                />
+              </div>
+            );
+          })}
         </div>
-
-        <button
-          onClick={() => setVerticalHeight(!verticalHeight)}
-          className="bg-red-600 px-4 py-2 rounded-lg w-fit font-[500] self-end  cursor-pointer"
-        >
-          {verticalHeight ? "Show More" : "Less More"}
-        </button>
       </div>
     </div>
   );

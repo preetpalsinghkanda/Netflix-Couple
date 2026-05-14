@@ -6,13 +6,13 @@ import Cards from "./Cards";
 
 const HomeFull = () => {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen overflow-x-hidden w-full">
       <HomeNavBar />
 
-      <div className="flex">
+      <div className="flex w-full">
         <HomeSideNavBar />
 
-        <div className="flex-1 px-2">
+        <div className="flex-1 px-2 min-w-0 w-full overflow-hidden lg:ml-26">
           <Home />
           <Cards />
         </div>
