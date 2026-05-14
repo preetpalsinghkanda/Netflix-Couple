@@ -7,6 +7,7 @@ import {
   faBell,
   faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
+import logoSmall from '../../assets/NetflixSmallLogo.webp' 
 
 const HomeNavBar = () => {
    const [showNavBar, setShowNavBar] = useState(false);
@@ -28,14 +29,15 @@ const HomeNavBar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-50 w-full text-white flex justify-between px-14 py-4 transition-all duration-400 ${
+      className={`fixed top-0 left-0 z-50 w-full text-white flex justify-between lg:px-14 md:px-10 px-4 py-4 transition-all duration-400 ${
         showNavBar ? "bg-black/70 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="flex gap-22 items-center">
-        <img src={NetflixLogo} alt="" className="h-10" />
+        <img src={NetflixLogo} alt="" className="h-10 hidden lg:flex" />
+        <img src={logoSmall} alt="" className="h-10 lg:hidden flex" />
 
-        <ul className="flex font-[700] text-xl gap-9 text-[#ffffffa1]">
+        <ul className="lg:flex font-[700] text-xl gap-9 text-[#ffffffa1] hidden">
                  <li className="text-white cursor-pointer">Home</li>
            <li className="cursor-pointer">TV Shows</li>
 

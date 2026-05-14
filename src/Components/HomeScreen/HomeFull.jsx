@@ -12,7 +12,7 @@ const HomeFull = () => {
       <div className="flex">
         <HomeSideNavBar />
 
-        <div className="flex-1 px-6">
+        <div className="flex-1 px-2">
           <Home />
           <Cards />
         </div>

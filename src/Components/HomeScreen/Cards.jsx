@@ -58,7 +58,7 @@ const Cards = () => {
   ];
 
   return (
-    <div className="text-white flex flex-col gap-4 relative bottom-12 bg-transparent ">
+    <div className="text-white  flex flex-col gap-4 relative bottom-12 bg-transparent ">
       <div className="flex flex-col">
         <div
           className={` text-white flex flex-col gap-3 ${horizontalHeight ? `h-65` : `h-auto`} overflow-hidden`}
