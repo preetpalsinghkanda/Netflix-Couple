@@ -11,6 +11,7 @@ import HomeNavBar from "./Components/HomeScreen/HomeNavBar";
 import Home from "./Components/HomeScreen/Home";
 import Cards from "./Components/HomeScreen/Cards";
 import HomeFull from "./Components/HomeScreen/HomeFull";
+import MoreInfo from "./Components/HomeScreen/MoreInfo";
 
 const App = () => {
   return (
@@ -23,12 +24,11 @@ const App = () => {
 
       {/* <WhoIsWatching/> */}
 
-      {/* <HomeSideNavBar/>*/}
-      {/* <HomeNavBar/> */}
-      {/* <Home/> */}
-      {/* <Cards/> */}
+      {/* <HomeFull /> */}
 
-      <HomeFull />
+
+        <MoreInfo/>
+
     </div>
   );
 };

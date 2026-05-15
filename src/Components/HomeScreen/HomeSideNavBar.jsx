@@ -20,9 +20,11 @@ const HomeSideNavBar = () => {
   const homeIcons = [
     {
       iconName: faMagnifyingGlass,
+     
     },
     {
       iconName: faHouse,
+       active : "border-b-4 border-red-700 ",
     },
     {
       iconName: faCalendarDays,
@@ -73,8 +75,9 @@ const HomeSideNavBar = () => {
           <div className=" border-red-700 md:justify-center md:items-center my-4 md:flex  hidden ">
             <FontAwesomeIcon
               icon={item.iconName}
-              className="text-white text-2xl"
+              className={`text-white text-2xl ${item.active}  `}
             />
+            
           </div>
         );
       })}
