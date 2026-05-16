@@ -15,6 +15,7 @@ import MoreInfo from "./Components/HomeScreen/MoreInfo";
 import { Routes, Route } from "react-router-dom";
 import Login from "./Components/Login";
 import { Toaster } from "react-hot-toast";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 const App = () => {
   return (
@@ -49,6 +50,15 @@ const App = () => {
               oppositeName={"Sign in now."}
               navigatePage={"login"}
             />
+          }
+        />
+
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <HomeFull />
+            </ProtectedRoute>
           }
         />
       </Routes>

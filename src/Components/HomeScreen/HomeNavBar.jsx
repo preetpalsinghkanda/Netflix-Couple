@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NetflixLogo from "../../assets/netflix.png";
 import HomeProfile from "../../assets/Home/homeProfile.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,15 +8,34 @@ import {
   faCaretDown,
   faUser,
   faCircleQuestion,
-
 } from "@fortawesome/free-solid-svg-icons";
 import logoSmall from "../../assets/NetflixSmallLogo.webp";
 import catImg from "../../assets/catimg.webp";
+import NetflixCouple from "../../Context/Context.";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const HomeNavBar = () => {
+  const navigate = useNavigate();
+  const { userName } = useContext(NetflixCouple);
   const [showNavBar, setShowNavBar] = useState(false);
   const [showNote, setShowNote] = useState(false);
-  const [showAccount , setShowAccount] = useState(false)
+  const [showAccount, setShowAccount] = useState(false);
+
+  //logout fnc
+
+  async function handleLogout() {
+    try {
+      await signOut(auth);
+      localStorage.removeItem("isLoggedIn");
+      toast.success("Successfully Logout champ!");
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,28 +117,38 @@ const HomeNavBar = () => {
             </div>
           </div>
 
-
-          <div className="flex items-center gap-1 cursor-pointer group" onClick={()=>setShowAccount(!showAccount)}>
+          <div
+            className="flex items-center gap-1 cursor-pointer group"
+            onClick={() => setShowAccount(!showAccount)}
+          >
             <img src={HomeProfile} alt="" className="h-9 rounded-md" />
 
             <FontAwesomeIcon icon={faCaretDown} />
-             <div
+            <div
               className={`absolute top-18  w-50 right-2 lg:right-10  p-4 rounded-2xl bg-[black] border border-[#ffffff5b] text-white z-50 ${
                 showAccount ? "block" : "hidden"
               } group-hover:block`}
             >
-              <div className="flex flex-col gap-2"><div className="flex gap-3  items-center"><img src={HomeProfile} alt="" className="h-8 rounded-md" /> Hi, Harsh</div>
-                <div className="flex gap-3  items-center"> <FontAwesomeIcon icon={faUser} /> Account</div>
-              <div className="flex gap-3  items-center"><FontAwesomeIcon icon={faCircleQuestion} /> Help Center</div></div>
+              <div className="flex flex-col gap-2">
+                <div className="flex gap-3  items-center">
+                  <img src={HomeProfile} alt="" className="h-8 rounded-md" />{" "}
+                  Hi, {userName}
+                </div>
+                <div className="flex gap-3  items-center">
+                  {" "}
+                  <FontAwesomeIcon icon={faUser} /> Account
+                </div>
+                <div className="flex gap-3  items-center">
+                  <FontAwesomeIcon icon={faCircleQuestion} /> Help Center
+                </div>
+              </div>
 
-              
-                <button className="py-1 mt-3 text-lg cursor-pointer w-full rounded-md bg-[#E50914] flex items-center justify-center font-[600]">Sign Out</button>
-             
+              <button onClick={handleLogout} className=" cursor-pointer py-1 mt-3 text-lg cursor-pointer w-full rounded-md bg-[#E50914] flex items-center justify-center font-[600]">
+                Sign Out
+              </button>
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   );

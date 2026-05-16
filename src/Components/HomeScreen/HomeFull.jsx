@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import HomeSideNavBar from "./HomeSideNavBar";
 import HomeNavBar from "./HomeNavBar";
 import Home from "./Home";
 import Cards from "./Cards";
 
 const HomeFull = () => {
-  return (
+    return (
     <div className="bg-black min-h-screen overflow-x-hidden w-full">
       <HomeNavBar />
 

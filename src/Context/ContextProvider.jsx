@@ -10,6 +10,8 @@ const [enabledFAQ , setEnabledFAQ] = useState(null)
   const [pass, setPass] = useState("");
 
 
+  const [userName , setUserName] = useState("");
+
 
   return (
     
@@ -20,6 +22,9 @@ const [enabledFAQ , setEnabledFAQ] = useState(null)
         setEmail,
         pass,
         setPass,
+        userName,
+        setUserName,
+
     }}>
         {children}
     </NetflixCouple.Provider>

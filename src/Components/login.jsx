@@ -14,26 +14,31 @@ import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import NetflixCouple from "../Context/Context.";
 
-
-const Login = ({ AuthName, oppositeLine, oppositeName , navigatePage }) => {
-
-const {setEmail , email , pass , setPass} = useContext(NetflixCouple)
+const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
+  const { setEmail, email, pass, setPass , setUserName } = useContext(NetflixCouple);
 
   const navigate = useNavigate();
 
   const provider = new GoogleAuthProvider();
 
+  // google login
+
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
 
-      console.log(result.user);
+      setUserName(result.user.displayName) ;
 
+      localStorage.setItem("isLoggedIn", "true");
       toast.success("Successfully Login with GOOOGLE!");
+      navigate("/home");
     } catch (error) {
       toast.error(`Err : ${error.message}`);
     }
   };
+
+
+  // email login 
 
   const handleEmailLogin = async () => {
     try {
@@ -47,12 +52,9 @@ const {setEmail , email , pass , setPass} = useContext(NetflixCouple)
     }
   };
 
-
-
   return (
     <div
-   
-      className= " bg-black w-full h-screen bg-cover bg-center flex mx-auto items-center justify-center"
+      className=" bg-black w-full h-screen bg-cover bg-center flex mx-auto items-center justify-center"
       style={{
         backgroundImage: `
       radial-gradient(
@@ -70,7 +72,15 @@ const {setEmail , email , pass , setPass} = useContext(NetflixCouple)
     `,
       }}
     >
-      <img  onClick={()=>{navigate("/"); setEmail("") }} className="cursor-pointer absolute left-55 h-12 top-5" src={netflixLogo} alt="" />
+      <img
+        onClick={() => {
+          navigate("/");
+          setEmail("");
+        }}
+        className="cursor-pointer absolute left-55 h-12 top-5"
+        src={netflixLogo}
+        alt=""
+      />
 
       <div className="text-white px-15 py-10 max-w-lg bg-[#080808d5] rounded-xl ">
         <h5 className="text-4xl font-extrabold">{AuthName}</h5>
@@ -94,7 +104,10 @@ const {setEmail , email , pass , setPass} = useContext(NetflixCouple)
           />
         </div>
         <div className="flex flex-col gap-2.5 my-4">
-          <button onCanPlay={handleEmailLogin} className="cursor-pointer bg-[#D90C16] w-full  text-lg font-bold py-2.5 rounded-lg flex items-center justify-center">
+          <button
+            onCanPlay={handleEmailLogin}
+            className="cursor-pointer bg-[#D90C16] w-full  text-lg font-bold py-2.5 rounded-lg flex items-center justify-center"
+          >
             {AuthName}
           </button>
 
