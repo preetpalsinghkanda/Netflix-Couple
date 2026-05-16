@@ -13,17 +13,20 @@ import Cards from "./Components/HomeScreen/Cards";
 import HomeFull from "./Components/HomeScreen/HomeFull";
 import MoreInfo from "./Components/HomeScreen/MoreInfo";
 import { Routes , Route } from "react-router-dom";
+import Login from "./Components/Login";
 
 const App = () => {
   return (
     <div className="flex justify-center  flex-col bg-[black]">
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<><Hero/> <ReasonToJoin/> <FAQ/> <ReadyToWatch/> <Footer/></>} />
         <Route path="" />
 
-      </Routes>
+      </Routes> */}
 
+      <Login/>
 
+    {/* <h1 className="text-white">Hello Bhai</h1> */}
         
 
     </div>
