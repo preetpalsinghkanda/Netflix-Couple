@@ -26,10 +26,10 @@ const Hero = () => {
   `,
       }}
     >
-      <div className="w-[1280px] mx-auto px-6 flex flex-col   ">
+      <div className="w-[1280px] mx-auto px-6 flex flex-col ">
         <Hero_NavBar />
 
-        <div className="text-white text-center   my-14">
+        <div className="text-white text-center   my-24">
           <h1 className="lg:text-6xl md:text-6xl text-4xl font-extrabold leading-tight">
             Unlimited movies,<p className="lg:block  md:block sm:block inline-block"></p> shows, and more
           </h1>

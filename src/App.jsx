@@ -12,22 +12,19 @@ import Home from "./Components/HomeScreen/Home";
 import Cards from "./Components/HomeScreen/Cards";
 import HomeFull from "./Components/HomeScreen/HomeFull";
 import MoreInfo from "./Components/HomeScreen/MoreInfo";
+import { Routes , Route } from "react-router-dom";
 
 const App = () => {
   return (
     <div className="flex justify-center  flex-col bg-[black]">
-      {/* <Hero/>
-      <ReasonToJoin/>
-      <FAQ/>
-      <ReadyToWatch/>
-      <Footer/>  */}
+      <Routes>
+        <Route path="/" element={<><Hero/> <ReasonToJoin/> <FAQ/> <ReadyToWatch/> <Footer/></>} />
+        <Route path="" />
 
-      {/* <WhoIsWatching/> */}
-
-      {/* <HomeFull /> */}
+      </Routes>
 
 
-        <MoreInfo/>
+        
 
     </div>
   );
