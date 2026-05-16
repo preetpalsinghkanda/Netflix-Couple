@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Hero_NavBar from "./Hero_NavBar";
 import bgImage from "../assets/bgImage.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import FAQ from "./FAQ";
+import { useNavigate } from "react-router-dom";
+import NetflixCouple from "../Context/Context.";
 
 const Hero = () => {
+  const {setEmail , email} = useContext(NetflixCouple)
+  const navigate = useNavigate();
+
   return (
     <div
-      className="bg-[#000000]  max-h-218  w-full h-screen bg-[length:100%_100%] bg-center flex mx-auto items-start justify-center"
+    
+      className=" bg-[#000000]  max-h-218  w-full h-screen bg-[length:100%_100%] bg-center flex mx-auto items-start justify-center"
       style={{
         backgroundImage: `
     radial-gradient(
@@ -46,11 +52,15 @@ const Hero = () => {
 
           <div className="my-4 flex-col md:flex-row flex items-center justify-center gap-3">
             <input
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
               className="  md:w-auto w-full lg:min-w-[400px] md:min-w-[400px] border bg-[#0f0f0f93] px-4 rounded-sm py-3.5 text-xl font-[700] border-[#7d7c7c9f]"
               type="text"
               placeholder="Email address"
             />
-            <button className="bg-[#E50914] flex items-center justify-center px-8 py-3.5 text-2xl cursor-pointer font-[700] rounded-lg">
+            <button onClick={()=>navigate("/signup")} className="bg-[#E50914] flex items-center justify-center px-8 py-3.5 text-2xl cursor-pointer font-[700] rounded-lg">
               Get Started <FontAwesomeIcon icon={faAngleRight} />
             </button>
           </div>

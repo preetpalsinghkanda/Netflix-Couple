@@ -12,23 +12,46 @@ import Home from "./Components/HomeScreen/Home";
 import Cards from "./Components/HomeScreen/Cards";
 import HomeFull from "./Components/HomeScreen/HomeFull";
 import MoreInfo from "./Components/HomeScreen/MoreInfo";
-import { Routes , Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./Components/Login";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <div className="flex justify-center  flex-col bg-[black]">
-      {/* <Routes>
-        <Route path="/" element={<><Hero/> <ReasonToJoin/> <FAQ/> <ReadyToWatch/> <Footer/></>} />
-        <Route path="" />
-
-      </Routes> */}
-
-      <Login/>
-
-    {/* <h1 className="text-white">Hello Bhai</h1> */}
-        
-
+      <Toaster />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero /> <ReasonToJoin /> <FAQ /> <ReadyToWatch /> <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Login
+              AuthName={"Sign In"}
+              oppositeLine={"New to Netflix?"}
+              oppositeName={"Sign up now."}
+              navigatePage={"signup"}
+            />
+          }
+        />
+        <Route
+          path="/Signup"
+          element={
+            <Login
+              AuthName={"Sign Up"}
+              oppositeLine={"Already have an account?"}
+              oppositeName={"Sign in now."}
+              navigatePage={"login"}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 };

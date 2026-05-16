@@ -6,6 +6,8 @@ import React, { useState } from 'react'
 const ContextProvider = ({children}) => {
 
 const [enabledFAQ , setEnabledFAQ] = useState(null)
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
 
 
 
@@ -13,7 +15,11 @@ const [enabledFAQ , setEnabledFAQ] = useState(null)
     
     <NetflixCouple.Provider value={{
         enabledFAQ,
-        setEnabledFAQ
+        setEnabledFAQ,
+        email,
+        setEmail,
+        pass,
+        setPass,
     }}>
         {children}
     </NetflixCouple.Provider>
