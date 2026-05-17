@@ -113,12 +113,14 @@ const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
           navigate("/");
           setEmail("");
         }}
-        className="cursor-pointer absolute left-55 h-12 top-5"
+        className="cursor-pointer absolute lg:left-45 md:left-3 sm:left-3 left-5 lg:h-25 md:h-22 sm:h-20  h-22 top-5"
         src={netflixLogo}
         alt=""
       />
 
-      <div className="text-white px-15 py-10 max-w-lg bg-[#080808d5] rounded-xl ">
+      {/*  */}
+
+      <div className="text-white px-15 sm:py-10 py-45 sm:bg-[#080808d5] bg-black sm:max-w-lg sm:h-auto h-full w-full  rounded-xl ">
         <h5 className="text-4xl font-extrabold">{AuthName}</h5>
         <div className="flex flex-col mt-8 gap-4">
           <div>
@@ -182,9 +184,9 @@ const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
 
           <button
             onClick={handleGoogleLogin}
-            className=" cursor-pointer bg-[#333535] text-black w-full  text-lg font-bold py-2.5 rounded-lg flex items-center justify-center"
+            className=" cursor-pointer bg-[#333535] text-black w-full  text-lg font-bold py-3 rounded-lg flex items-center justify-center"
           >
-            <FontAwesomeIcon icon={faGoogle} className="text-white" />
+            <FontAwesomeIcon icon={faGoogle} className="text-white text-2xl" />
           </button>
         </div>
 

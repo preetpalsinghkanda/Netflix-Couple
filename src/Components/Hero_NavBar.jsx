@@ -9,14 +9,14 @@ const Hero_NavBar = () => {
   const {setEmail} = useContext(NetflixCouple)
   const navigate = useNavigate()
   return (
-    <div className="  flex justify-between items-center my-5 ">
+    <div className="  flex justify-between items-start my-5 ">
       <img
       onClick={()=>navigate("/")}
         src={netflixIcon}
         alt=""
-        className="cursor-pointer lg:h-11 md:h-35 sm:h-30 h-25 "
+        className="cursor-pointer lg:h-26 md:h-22 sm:h-20 h-20 "
       />
-      <div className="flex flex-row items-start gap-4">
+      <div className="flex flex-row items-start mt-2 gap-4">
         <div className="outline-1 px-4 py-1 rounded-md text-white outline-[#7e7e7e]">
           <FontAwesomeIcon icon={faLanguage} />
           <select name="" id="" className="outline-0 bg-black hidden sm:inline-block ">

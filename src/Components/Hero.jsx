@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div
     
-      className=" bg-[#000000]  max-h-218  w-full h-screen bg-[length:100%_100%] bg-center flex mx-auto items-start justify-center"
+      className=" bg-[#000000]  max-h-218 bg-cover w-full h-screen  bg-center flex mx-auto items-start justify-center"
       style={{
         backgroundImage: `
     radial-gradient(
