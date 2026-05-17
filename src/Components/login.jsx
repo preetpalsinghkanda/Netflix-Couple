@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import bgImage from "../assets/bgImage.jpg";
 import netflixLogo from "../assets/netflix.png";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import toast from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import {
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
@@ -15,9 +17,13 @@ import { useNavigate } from "react-router-dom";
 import NetflixCouple from "../Context/Context.";
 
 const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
-  const { setEmail, email, pass, setPass , setUserName } = useContext(NetflixCouple);
+  const { setEmail, email, pass, setPass, setUserName } =
+    useContext(NetflixCouple);
 
   const navigate = useNavigate();
+  const [emailErr, setEmailErr] = useState(false);
+
+  const [passErr, setPassErr] = useState(false);
 
   const provider = new GoogleAuthProvider();
 
@@ -27,7 +33,7 @@ const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
     try {
       const result = await signInWithPopup(auth, provider);
 
-      setUserName(result.user.displayName) ;
+      setUserName(result.user.displayName);
 
       localStorage.setItem("isLoggedIn", "true");
       toast.success("Successfully Login with GOOOGLE!");
@@ -37,13 +43,12 @@ const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
     }
   };
 
-
-  // email login 
+  // email login
 
   const handleEmailLogin = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, pass);
-
+      localStorage.setItem("isLoggedIn", "true");
       toast.success("Successfully Logged In :) ");
 
       navigate("/home");
@@ -51,6 +56,37 @@ const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
       toast.error(error.message);
     }
   };
+
+  //signup
+
+  const handleSignup = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(auth, email, pass);
+      toast.success("Account Created Successfully :), let's gooo");
+
+      navigate("/login");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  //input check
+
+  function emailErrCheck() {
+    if (email.length < 10) {
+      setEmailErr(true);
+    } else {
+      setEmailErr(false);
+    }
+  }
+
+  function passErrCheck() {
+    if (pass.length < 6) {
+      setPassErr(true);
+    } else {
+      setPassErr(false);
+    }
+  }
 
   return (
     <div
@@ -85,27 +121,58 @@ const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
       <div className="text-white px-15 py-10 max-w-lg bg-[#080808d5] rounded-xl ">
         <h5 className="text-4xl font-extrabold">{AuthName}</h5>
         <div className="flex flex-col mt-8 gap-4">
-          <input
-            type="text"
-            value={email}
-            placeholder="Email or mobile number"
-            className="border border-[#ffffff58] rounded-sm py-3.5 px-4.5 text-lg"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            placeholder="Password"
-            type="password"
-            className="border border-[#ffffff58] rounded-sm py-3.5 px-4.5 text-lg"
-            onChange={(e) => {
-              setPass(e.target.value);
-            }}
-          />
+          <div>
+            <input
+              type="text"
+              value={email}
+              placeholder="Email or mobile number"
+              className="border border-[#ffffff58] w-full rounded-sm py-3.5 px-4.5 text-lg"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+
+            {emailErr && (
+              <div className="flex items-center text-sm mt-1 gap-1 text-[#C91404]">
+                <FontAwesomeIcon icon={faCircleXmark} />
+                <p>Please enter a valid email or mobile number.</p>
+              </div>
+            )}
+          </div>
+
+          <div>
+            <input
+              value={pass}
+              placeholder="Password"
+              type="password"
+              className="border w-full border-[#ffffff58] rounded-sm py-3.5 px-4.5 text-lg"
+              onChange={(e) => {
+                setPass(e.target.value);
+              }}
+            />
+
+            {passErr && (
+              <div className="flex items-center text-sm mt-1 gap-1 text-[#C91404]">
+                <FontAwesomeIcon icon={faCircleXmark} />
+                <p>Your password must contain 6 characters.</p>
+              </div>
+            )}
+          </div>
         </div>
         <div className="flex flex-col gap-2.5 my-4">
           <button
-            onCanPlay={handleEmailLogin}
+            onClick={() => {
+              emailErrCheck();
+              passErrCheck();
+
+              if (email.length >= 10 && pass.length >= 6) {
+                if (AuthName === "Sign Up") {
+                  handleSignup();
+                } else {
+                  handleEmailLogin();
+                }
+              }
+            }}
             className="cursor-pointer bg-[#D90C16] w-full  text-lg font-bold py-2.5 rounded-lg flex items-center justify-center"
           >
             {AuthName}
