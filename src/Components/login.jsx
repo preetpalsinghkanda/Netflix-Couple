@@ -120,7 +120,7 @@ const Login = ({ AuthName, oppositeLine, oppositeName, navigatePage }) => {
 
       {/*  */}
 
-      <div className="text-white px-15 sm:py-10 py-45 sm:bg-[#080808d5] bg-black sm:max-w-lg sm:h-auto h-full w-full  rounded-xl ">
+      <div className="text-white sm:px-15 px-8 sm:py-10 py-45 sm:bg-[#080808d5] bg-black sm:max-w-lg sm:h-auto h-full w-full  rounded-xl ">
         <h5 className="text-4xl font-extrabold">{AuthName}</h5>
         <div className="flex flex-col mt-8 gap-4">
           <div>

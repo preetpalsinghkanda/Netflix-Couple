@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Hero_NavBar from "./Components/Hero_NavBar";
 import Hero from "./Components/Hero";
 import FAQ from "./Components/FAQ";
@@ -16,8 +16,13 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./Components/Login";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import NetflixCouple from "./Context/Context.";
 
 const App = () => {
+
+  const {moreInfoEnabled}= useContext(NetflixCouple)
+
+
   return (
     <div className="flex justify-center  flex-col bg-[black]">
       <Toaster />
@@ -58,9 +63,18 @@ const App = () => {
           element={
             <ProtectedRoute>
               <HomeFull />
+              {moreInfoEnabled && <MoreInfo/>}
+
             </ProtectedRoute>
           }
         />
+
+
+          
+
+
+
+
       </Routes>
     </div>
   );

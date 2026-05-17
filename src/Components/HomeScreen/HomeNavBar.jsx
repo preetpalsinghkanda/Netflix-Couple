@@ -59,7 +59,7 @@ const HomeNavBar = () => {
         }`}
       >
         <div className="flex gap-22 items-center">
-          <img src={NetflixLogo} alt="" className="h-10 hidden lg:flex" />
+          <img src={NetflixLogo} alt="" className="h-15 hidden lg:flex" />
 
           <img src={logoSmall} alt="" className="h-10 lg:hidden flex" />
 

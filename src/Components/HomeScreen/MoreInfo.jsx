@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import video from "../../assets/video.mp4";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
+import NetflixCouple from "../../Context/Context.";
 
 const MoreInfo = () => {
+  const {setMoreInfoEnabled} = useContext(NetflixCouple)
+
+const[thumbFill , setThumbFill] = useState(false);
+
+
+
   const moreInfo = [
     {
       leftSide: "Director",
@@ -29,12 +36,19 @@ const MoreInfo = () => {
   ];
 
   return (
-    <div className="text-white flex justify-center">
-      <div className="my-4 border border-[#ffffff39] px-4 py-2 rounded-xl max-w-190">
+    <div className="fixed inset-0 z-50 text-white bg-black/90 flex justify-center items-center p-4 sm:p-6">
+      <div className="w-full max-w-190 max-h-[95vh] overflow-y-auto bg-[#000000]  border-[#ffffff39] px-4 py-4 rounded-xl scrollbar-hide shadow-2xl">
+        
         <div className="relative overflow-hidden rounded-2xl">
           <video src={video} loop muted playsInline className="w-full" />
-
+          
           <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent"></div>
+
+
+ <span onClick={()=>setMoreInfoEnabled(false)} className="absolute flex items-center top-4 right-4 z-50 bg-black/60 hover:bg-black p-2 rounded-full cursor-pointer">
+    <FontAwesomeIcon className="text-xl text-white" icon={faXmark} />
+  </span>
+          
         </div>
 
         <div className="flex gap-2 mt-4 relative bottom-6">

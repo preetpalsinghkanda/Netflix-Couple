@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import strangerThings from "../../assets/Home/strangerPosterwebp.webp";
 import originalLogo from "../../assets/original.webp";
 import strangerName from "../../assets/strangersName.webp";
@@ -8,8 +8,10 @@ import {
   faCircleInfo,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
+import NetflixCouple from "../../Context/Context.";
 
 const Home = () => {
+  const{setMoreInfoEnabled , moreInfoEnabled} = useContext(NetflixCouple)
   return (
     <div className="relative lg:h-[75vh] lg:min-h-auto min-h-screen w-full rounded-xl">
       <img
@@ -44,7 +46,7 @@ const Home = () => {
             Play
           </button>
 
-          <button className="bg-[#8080807a] hidden cursor-pointer text-white px-6 py-3 rounded-md lg:flex items-center font-semibold gap-3 text-lg hover:bg-[#80808097] transition">
+          <button onClick={()=>setMoreInfoEnabled(!moreInfoEnabled)} className="bg-[#8080807a] hidden cursor-pointer text-white px-6 py-3 rounded-md lg:flex items-center font-semibold gap-3 text-lg hover:bg-[#80808097] transition">
             <FontAwesomeIcon icon={faCircleInfo} />
             More Info
           </button>

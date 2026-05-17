@@ -9,6 +9,8 @@ const [enabledFAQ , setEnabledFAQ] = useState(null)
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
+  const [moreInfoEnabled , setMoreInfoEnabled] =  useState(true)
+
 
   const [userName , setUserName] = useState("");
 
@@ -24,6 +26,9 @@ const [enabledFAQ , setEnabledFAQ] = useState(null)
         setPass,
         userName,
         setUserName,
+        moreInfoEnabled,
+        setMoreInfoEnabled,
+
 
     }}>
         {children}
